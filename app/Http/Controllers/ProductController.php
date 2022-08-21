@@ -15,8 +15,11 @@ class ProductController extends Controller
         //$showData=Curd::paginate(5);
         //Another pagination
         //$showData=Curd::simplePaginate(5);
+        $products= Product::latest()->paginate(5);
 
-        return view('product.product');
+
+
+        return view('product.product',compact('products'));
     }
     public function addProduct(Request $request)
     {

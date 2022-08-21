@@ -35,20 +35,22 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($products as $value=>$product)
                             <tr>
-                                <th>1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
+                                <td>{{$value+1}}</td>
+                                <td>{{$product->productName}}</td>
+                                <td>{{$product->productSize}}</td>
+                                <td>{{$product->productPrice}}</td>
                                 <td>
                                     <a href="{{url('/edit-data/')}}" class="btn btn-success"><i class="las la-edit"></i></a>
                                     <a href="{{url('/delete-data/')}}" onclick="return confirm('Are You Sure To Delete')" class="btn btn-danger"><i class="las la-trash-alt"></i></a>
 
                                 </td>
                             </tr>
-
+                            @endforeach
                         </tbody>
                     </table>
+                    {!!$products ->links()!!}
                 </div>
             </div>
         </div>
