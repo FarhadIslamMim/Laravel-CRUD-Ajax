@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -22,16 +23,23 @@ class ProductController extends Controller
         $request->validate(
             [
                 'productName' => 'required|unique:products',
-                'productSize' => 'required|unique:products',
+                'productSize' => 'required',
                 'productPrice' => 'required',
             ],
             [
                 'productName.required' => 'Product Name is Required',
                 'productName.unique' => 'Product Already Exixts',
                 'productSize.required' => 'Product Size is Required',
-                'productSize.unique' => 'Product Size Already Exixts',
                 'productPrice.required' => 'Product Price is Required',
             ]
         );
+        $product=new Product();
+        $product->productName=$request->productName;
+        $product->productSize=$request->productSize;
+        $product->productPrice=$request->productPrice;
+        $product->save();
+        return response()->json([
+            'status'=>'success',
+        ]);
     }
 }

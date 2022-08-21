@@ -24,7 +24,10 @@
                 method:'post',
                 data:{productName:pName,productSize:pSize,productPrice:pPrice},
                 success:function(res){
-
+                    if(res.status=='success'){
+                         $('#addModal').modal('hide');
+                         $('#addProductForm')[0].reset();
+                    }
                 },error:function(err){
                     let error=err.responseJSON;
                     $.each(error.errors,function(index,value){
