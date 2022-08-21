@@ -14,7 +14,7 @@
 
 <body>
     <div class="container">
-        <a href="{{url('/')}}" class="btn btn-primary my-3">Show Data</a>
+        <a href="{{url('/data')}}" class="btn btn-primary my-3">Show Data</a>
 
         <!-- for Error showing -->
         <!-- @if ($errors->any())

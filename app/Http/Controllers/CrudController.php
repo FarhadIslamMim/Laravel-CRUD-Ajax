@@ -53,7 +53,7 @@ class CrudController extends Controller
         Session::flash('msg','Data Successfully Added!');
 
 
-        return redirect('/');
+        return redirect('/data');
         
     }
     
@@ -91,7 +91,7 @@ class CrudController extends Controller
         Session::flash('msg','Data Successfully Updated!');
 
 
-        return redirect('/');
+        return redirect('/data');
         
     }
 
@@ -101,6 +101,6 @@ class CrudController extends Controller
         $deleteData= Curd::find($id);
         $deleteData->delete();
         Session::flash('msg','Data Successfully Deleted.');
-        return redirect('/');
+        return redirect('/data');
     }
 }
