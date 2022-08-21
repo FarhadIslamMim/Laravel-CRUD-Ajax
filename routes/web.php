@@ -29,3 +29,4 @@ Route::get('/delete-data/{id}',[CrudController::class,'deleteData']);
 
 //Product Route
 Route::get('/product-data',[ProductController::class,'showProduct']);
+Route::post('/add-product',[ProductController::class,'addProduct'])->name('add.product');

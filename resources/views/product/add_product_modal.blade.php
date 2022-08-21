@@ -10,9 +10,9 @@
                 </div>
                 <div class="modal-body">
 
-                <div class="errMsgContainer">
+                    <div class="errMsgContainer mb-3">
 
-                </div>
+                    </div>
 
                     <div class="form_group my-1">
                         <label for="productName">Product Name</label>

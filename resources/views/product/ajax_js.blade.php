@@ -10,6 +10,30 @@
 </script>
 <script>
     $(document).ready(function() {
-        // alert();
+       
+        $(document).on('click','.add_product',function(e){
+            e.preventDefault();
+            let pName=$('#productName').val();
+            let pSize=$('#productSize').val();
+            let pPrice=$('#productPrice').val();
+            //console.log(pName+pSize+pPrice);
+            
+
+            $.ajax({
+                url:"{{route('add.product') }}",
+                method:'post',
+                data:{productName:pName,productSize:pSize,productPrice:pPrice},
+                success:function(res){
+
+                },error:function(err){
+                    let error=err.responseJSON;
+                    $.each(error.errors,function(index,value){
+                        $('.errMsgContainer').append('<span class="text-danger">'+value+'</span>'+'<br>');
+                    });
+                }
+
+            });
+        })
+        
     });
 </script>

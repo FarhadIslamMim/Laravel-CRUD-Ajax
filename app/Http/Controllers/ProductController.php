@@ -17,4 +17,21 @@ class ProductController extends Controller
 
         return view('product.product');
     }
+    public function addProduct(Request $request)
+    {
+        $request->validate(
+            [
+                'productName' => 'required|unique:products',
+                'productSize' => 'required|unique:products',
+                'productPrice' => 'required',
+            ],
+            [
+                'productName.required' => 'Product Name is Required',
+                'productName.unique' => 'Product Already Exixts',
+                'productSize.required' => 'Product Size is Required',
+                'productSize.unique' => 'Product Size Already Exixts',
+                'productPrice.required' => 'Product Price is Required',
+            ]
+        );
+    }
 }
