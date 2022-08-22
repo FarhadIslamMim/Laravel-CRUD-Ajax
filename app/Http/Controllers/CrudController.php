@@ -50,7 +50,7 @@ class CrudController extends Controller
         $curd->address=$request->address;
         $curd->save();
 
-        Session::flash('msg','Data Successfully Added!');
+        'Session'::flash('msg','Data Successfully Added!');
 
 
         return redirect('/data');
