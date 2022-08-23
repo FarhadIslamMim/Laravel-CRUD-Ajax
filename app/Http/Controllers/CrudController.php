@@ -47,6 +47,20 @@ class CrudController extends Controller
         }
     
     }
+    public function deleteDataApi($id=null)
+    {
+        $curdtable= Curd::find($id);
+
+        $result=$curdtable->delete();
+
+        if($result){
+            return  ["Result"=>"Data Saved Successfully!".$id];
+        }
+        else{
+            return  ["Result"=>"Faield!"];
+        }
+    
+    }
 
 
     public function showData()
