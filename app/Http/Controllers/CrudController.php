@@ -59,6 +59,12 @@ class CrudController extends Controller
         else{
             return  ["Result"=>"Faield!"];
         }
+    }
+    public function searchDataApi($name)
+    {
+        
+            return Curd::where("name","like","%".$name."%")->get();
+        
     
     }
 

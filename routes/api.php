@@ -22,3 +22,6 @@ Route::get("data/{id?}",[CrudController::class,'showDataApi']);
 Route::post("add-data",[CrudController::class,'addDataApi']);
 Route::put("update-data",[CrudController::class,'updateDataApi']);
 Route::delete("delete-data/{id}",[CrudController::class,'deleteDataApi']);
+
+  //for search daata(string or anything)
+  Route::get("search-data/{name}",[CrudController::class,'searchDataApi']);
