@@ -20,14 +20,32 @@ class CrudController extends Controller
         $curdtable->name= $request->name;
         $curdtable->email= $request->email;
         $curdtable->address= $request->address;
-        $curdtable->save();
 
-        if($request){
+        $result=$curdtable->save();
+
+        if($result){
             return  ["Result"=>"Data Saved Successfully!"];
         }
         else{
             return  ["Result"=>"Faield!"];
         }
+    }
+    public function updateDataApi(Request $request)
+    {
+        $curdtable=Curd::find($request->id);
+        $curdtable->name= $request->name;
+        $curdtable->email= $request->email;
+        $curdtable->address= $request->address;
+
+       $result= $curdtable->save();
+
+        if($result){
+            return  ["Result"=>"Data Saved Successfully!"];
+        }
+        else{
+            return  ["Result"=>"Faield!"];
+        }
+    
     }
 
 
@@ -111,7 +129,7 @@ class CrudController extends Controller
         $curd->address=$request->address;
         $curd->save();
 
-        Session::flash('msg','Data Successfully Updated!');
+        'Session'::flash('msg','Data Successfully Updated!');
 
 
         return redirect('/data');
@@ -123,7 +141,7 @@ class CrudController extends Controller
     {
         $deleteData= Curd::find($id);
         $deleteData->delete();
-        Session::flash('msg','Data Successfully Deleted.');
+        'Session'::flash('msg','Data Successfully Deleted.');
         return redirect('/data');
     }
 }

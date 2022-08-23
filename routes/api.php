@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get("data/{id?}",[CrudController::class,'showDataApi']);
 Route::post("add-data",[CrudController::class,'addDataApi']);
+Route::put("update-data",[CrudController::class,'updateDataApi']);
