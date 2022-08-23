@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class CrudController extends Controller
 {
+
+    public function showDataApi($id=null)
+    {
+        
+       return  $id?Curd::find($id):Curd::all();
+    }
+
     public function showData()
     {
         $showData= Curd::all();

@@ -35,15 +35,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($products as $value=>$product)
+                            @foreach($products as $key=>$product)
                             <tr>
-                                <td>{{$value+1}}</td>
+                                <td>{{$key+1}}</td>
                                 <td>{{$product->productName}}</td>
                                 <td>{{$product->productSize}}</td>
                                 <td>{{$product->productPrice}}</td>
                                 <td>
-                                    <a href="{{url('/edit-data/')}}" class="btn btn-success"><i class="las la-edit"></i></a>
-                                    <a href="{{url('/delete-data/')}}" onclick="return confirm('Are You Sure To Delete')" class="btn btn-danger"><i class="las la-trash-alt"></i></a>
+                                    <a href=""
+                                            class="btn btn-success update_product_form"
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#updateModal"
+
+                                            data-id="{{ $product->id}}"
+                                            data-productName="{{$product->productName}}"
+                                            data-productSize="{{$product->productSize}}"
+                                            data-productPrice="{{$product->productPrice}}"
+                                           >
+                                           <i class="las la-edit"></i>
+                                      </a>
+                                    <a href="" onclick="return confirm('Are You Sure To Delete')" class="btn btn-danger"><i class="las la-trash-alt"></i></a>
 
                                 </td>
                             </tr>
@@ -57,6 +68,7 @@
     </div>
 
     @include('product.add_product_modal')
+    @include('product.update_product_modal')
     @include('product.ajax_js')
 
 

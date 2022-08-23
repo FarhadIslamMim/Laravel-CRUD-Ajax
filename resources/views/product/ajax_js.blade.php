@@ -10,13 +10,15 @@
 </script>
 <script>
     $(document).ready(function() {
-       
+        //alert();
         $(document).on('click','.add_product',function(e){
+            
             e.preventDefault();
             let pName=$('#productName').val();
             let pSize=$('#productSize').val();
             let pPrice=$('#productPrice').val();
             //console.log(pName+pSize+pPrice);
+            
             
 
             $.ajax({
@@ -38,6 +40,28 @@
 
             });
         })
+
+        //show product value in update form
+        $(document).on('click','.update_product_form',function(){
+            
+            let id= $(this).data('id');
+            let productName= $(this).data('productName');
+            let productSize= $(this).data('productSize');
+            let productPrice= $(this).data('productPrice');
+
+            //console.log(id,productName,productSize,productPrice);
+           
+            console.log(id);
+            console.log(productName);
+
+            $('#up_id').val(id);
+            $('#up_name').val(productName);
+            $('#up_size').val(productSize);
+            $('#up_price').val(productPrice);
+
+            console.log(up_id);
+            console.log(up_name);
+        });
         
     });
 </script>
