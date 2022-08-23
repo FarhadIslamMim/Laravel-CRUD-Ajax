@@ -14,6 +14,22 @@ class CrudController extends Controller
         
        return  $id?Curd::find($id):Curd::all();
     }
+    public function addDataApi(Request $request)
+    {
+        $curdtable=new Curd();
+        $curdtable->name= $request->name;
+        $curdtable->email= $request->email;
+        $curdtable->address= $request->address;
+        $curdtable->save();
+
+        if($request){
+            return  ["Result"=>"Data Saved Successfully!"];
+        }
+        else{
+            return  ["Result"=>"Faield!"];
+        }
+    }
+
 
     public function showData()
     {
