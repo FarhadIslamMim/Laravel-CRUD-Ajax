@@ -63,7 +63,13 @@ class CrudController extends Controller
     public function searchDataApi($name)
     {
         
-            return Curd::where("name","like","%".$name."%")->get();
+            $result =Curd::where("name","like","%".$name."%")->get();
+            if(count($result) > 0){
+                return $result;
+            }
+            else{
+                return  $name." is not found!!";
+            }
         
     
     }
