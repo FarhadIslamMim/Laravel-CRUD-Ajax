@@ -78,9 +78,9 @@ Login API
 Details API
 Getting Started
 Step 1: setup database in .env file
-DB_DATABASE=laravelCURD
+DB_DATABASE=Db name
 DB_USERNAME=root
-DB_PASSWORD=
+DB_PASSWORD= 
 Step 2:Install Laravel Sanctum.
 composer require laravel/sanctum
 Step 3:Publish the Sanctum configuration and migration files .
@@ -168,7 +168,7 @@ Step 11: Test with postman, Result will be below
     "user": {
         "id": 1,
         "name": "mim",
-        "email": "mim@gmail.com",
+        "email": "mim@doe.com",
         "email_verified_at": null,
         "created_at": null,
         "updated_at": null
