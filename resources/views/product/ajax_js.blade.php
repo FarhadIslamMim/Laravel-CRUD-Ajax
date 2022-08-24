@@ -49,7 +49,7 @@
             let productSize= $(this).data('productSize');
             let productPrice= $(this).data('productPrice');
 
-            //console.log(id,productName,productSize,productPrice);
+            console.log(id,productName,productSize,productPrice);
            
             console.log(id);
             console.log(productName);
