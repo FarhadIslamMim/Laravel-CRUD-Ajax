@@ -21,17 +21,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::group(['middleware' => 'auth:sanctum'], function () {
-  //All secure URL's
 
-  Route::get("data/{id?}", [CrudController::class, 'showDataApi']);
-  Route::post("add-data", [CrudController::class, 'addDataApi']);
-  Route::put("update-data", [CrudController::class, 'updateDataApi']);
-  Route::delete("delete-data/{id}", [CrudController::class, 'deleteDataApi']);
+Route::post("login", [UserController::class, 'login']);
 
-  //for search daata(string or anything)
-  Route::get("search-data/{name}", [CrudController::class, 'searchDataApi']);
-});
+  Route::group(['middleware' => 'auth:sanctum'], function () {
+    //All secure URL's
 
+    Route::post("logout", [UserController::class, 'logout']);
+    Route::get("data/{id?}", [CrudController::class, 'showDataApi']);
+    Route::post("add-data", [CrudController::class, 'addDataApi']);
+    Route::put("update-data", [CrudController::class, 'updateDataApi']);
+    Route::delete("delete-data/{id}", [CrudController::class, 'deleteDataApi']);
 
-Route::post("login", [UserController::class, 'index']);
+    //for search daata(string or anything)
+    Route::get("search-data/{name}", [CrudController::class, 'searchDataApi']);
+  });

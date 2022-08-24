@@ -74,7 +74,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 What is Laravel Sanctum ? Laravel Sanctum provides a featherweight authentication system for SPAs (single page applications), mobile applications, and simple, token based APIs. Sanctum allows each user of your application to generate multiple API tokens for their account. These tokens may be granted abilities / scopes which specify which actions the tokens are allowed to perform..
 
 You have to just follow a few steps to get following web services
-
 Login API
 Details API
 Getting Started
@@ -88,11 +87,9 @@ Step 3:Publish the Sanctum configuration and migration files .
 php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
 
 Step 4:Run your database migrations.
-
 php artisan migrate
 
 Step 5:Add the Sanctum's middleware.
-
 ../app/Http/Kernel.php
 
 use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
@@ -113,14 +110,15 @@ use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
 ],
 
 Step 6:To use tokens for users.
-
-
 use Laravel\Sanctum\HasApiTokens;
+
+
 
 class User extends Authenticatable
 {
     use HasApiTokens, Notifiable;
 }
+
 
 Step 7:Let's create the seeder for the User model
 
@@ -128,8 +126,10 @@ Step 7:Let's create the seeder for the User model
 php artisan make:seeder UsersTableSeeder
 
 
-
 Step 8:Now let's insert as record
+
+
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 ...
@@ -139,6 +139,9 @@ DB::table('users')->insert([
     'email' => 'mim@gmail.com',
     'password' => Hash::make('password')
 ]);
+
+
+
 Step 9:To seed users table with user
 
 
@@ -179,7 +182,13 @@ class UserController extends Controller
              return response($response, 201);
     }
 }
+
+
+
 Step 11: Test with postman, Result will be below
+
+
+
 {
     "user": {
         "id": 1,
@@ -191,11 +200,19 @@ Step 11: Test with postman, Result will be below
     },
     "token": "AbQzDgXa..."
 }
+
+
+
 Step 11: Make Details API or any other with secure route
+
+
+
 Route::group(['middleware' => 'auth:sanctum'], function(){
     //All secure URL's
 
     });
 
 
+
 Route::post("login",[UserController::class,'index']);
+
