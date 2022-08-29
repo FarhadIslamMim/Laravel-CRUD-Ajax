@@ -80,6 +80,7 @@ class ProductController extends Controller
         ]);
     }
 
+    //delete product
     public function deleteProduct(Request $request){
         Product::find($request->product_id)->delete();
 
@@ -87,6 +88,16 @@ class ProductController extends Controller
             'status'=>'success',
         ]);
     }
+
+
+//product pagination
+public function pagination(Request $request){
+    
+    
+    $products= Product::latest()->paginate(5);
+    return view('product.pagination_product',compact('products'))->render();
+}
+
 
     
     

@@ -32,3 +32,4 @@ Route::get('/product-data',[ProductController::class,'showProduct']);
 Route::post('/add-product',[ProductController::class,'addProduct'])->name('add.product');
 Route::post('/update-product',[ProductController::class,'updateProduct'])->name('update.product');
 Route::post('/delete-product',[ProductController::class,'deleteProduct'])->name('delete.product');
+Route::get('/pagination/paginate-data',[ProductController::class,'pagination']);
