@@ -1,7 +1,4 @@
 <a href="" class="btn btn-success my-3" data-bs-toggle="modal" data-bs-target="#addModal">Add Product</a>
-@if(Session::has('msg'))
-<p class="alert alert-success">{{Session::get('msg')}}</p>
-@endif
 <table class="table table-bordered">
     <thead>
         <tr>

@@ -21,6 +21,8 @@
                 <h2 class="my-5 text-center">Laravel Ajax Crud</h2>
                 <div class="table-data">
                     <a href="" class="btn btn-success my-3" data-bs-toggle="modal" data-bs-target="#addModal">Add Product</a>
+                   <input type="text" name="search" id="search" class="mb-3 form-control" placeholder="Search Here...">
+
                     @if(Session::has('msg'))
                     <p class="alert alert-success">{{Session::get('msg')}}</p>
                     @endif
@@ -76,7 +78,7 @@
     @include('product.add_product_modal')
     @include('product.update_product_modal')
     @include('product.ajax_js')
-    
+
     {!! Toastr::message() !!}
 
 

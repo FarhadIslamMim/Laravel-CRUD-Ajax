@@ -92,10 +92,29 @@ class ProductController extends Controller
 
 //product pagination
 public function pagination(Request $request){
-    
+
     
     $products= Product::latest()->paginate(5);
     return view('product.pagination_product',compact('products'))->render();
+}
+
+//Search Product
+public function searchProduct(Request $request){
+   
+    $products = Product::where('productName','like','%'.$request->search_string.'%')
+    ->orWhere('productPrice','like','%'.$request->search_string.'%')
+    ->orWhere('id','desc')
+    ->paginate(5);
+   
+    if($products->count()>=1){
+        return view('product.pagination_product',compact('products'))->render();
+    }
+    else{
+        return response()->json([
+            'status'=>'nothing_found',
+        ]);
+    }
+    
 }
 
 
