@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <title>Ajax Curd</title>
 </head>
@@ -48,13 +49,18 @@
                                             data-bs-target="#updateModal"
 
                                             data-id="{{ $product->id}}"
-                                            data-productName="{{$product->productName}}"
-                                            data-productSize="{{$product->productSize}}"
-                                            data-productPrice="{{$product->productPrice}}"
+                                            data-name="{{$product->productName}}"
+                                            data-size="{{$product->productSize}}"
+                                            data-price="{{$product->productPrice}}"
                                            >
                                            <i class="las la-edit"></i>
                                       </a>
-                                    <a href="" onclick="return confirm('Are You Sure To Delete')" class="btn btn-danger"><i class="las la-trash-alt"></i></a>
+                                    <a href="" 
+                                    class="btn btn-danger delete_product"
+                                    data-id="{{ $product->id}}"
+                                             >
+                                    <i class="las la-trash-alt"></i>
+                                    </a>
 
                                 </td>
                             </tr>
@@ -70,6 +76,8 @@
     @include('product.add_product_modal')
     @include('product.update_product_modal')
     @include('product.ajax_js')
+    
+    {!! Toastr::message() !!}
 
 
 </body>

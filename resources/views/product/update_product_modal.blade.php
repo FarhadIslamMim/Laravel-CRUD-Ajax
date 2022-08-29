@@ -35,7 +35,7 @@
                 </div>
                 <div class="modal-footer my-1">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary up_product">Update Product</button>
+                    <button type="button" class="btn btn-primary update_product">Update Product</button>
                 </div>
             </div>
         </div>
